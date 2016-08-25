@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453709B02B16FB1C42D8F85B /* Pods_ScaledPageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B64B50B9BA7EB4538B9058 /* Pods_ScaledPageView.framework */; };
 		7B29EDB31D6ED9BD00A68DB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDB21D6ED9BD00A68DB1 /* AppDelegate.swift */; };
 		7B29EDB51D6ED9BD00A68DB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDB41D6ED9BD00A68DB1 /* ViewController.swift */; };
 		7B29EDB81D6ED9BD00A68DB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDB61D6ED9BD00A68DB1 /* Main.storyboard */; };
 		7B29EDBA1D6ED9BD00A68DB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDB91D6ED9BD00A68DB1 /* Assets.xcassets */; };
 		7B29EDBD1D6ED9BD00A68DB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDBB1D6ED9BD00A68DB1 /* LaunchScreen.storyboard */; };
+		7B29EDC91D6EDA9200A68DB1 /* ScaledScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */; };
+		7B29EDCA1D6EDA9200A68DB1 /* ScaledViewOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */; };
+		7B29EDCB1D6EDA9200A68DB1 /* ScaledViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */; };
+		7B29EDCC1D6EDA9200A68DB1 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F6466F073EA5A862ECD3C46 /* Pods-ScaledPageView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScaledPageView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScaledPageView/Pods-ScaledPageView.debug.xcconfig"; sourceTree = "<group>"; };
 		7B29EDAF1D6ED9BD00A68DB1 /* ScaledPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScaledPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B29EDB21D6ED9BD00A68DB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B29EDB41D6ED9BD00A68DB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,12 @@
 		7B29EDB91D6ED9BD00A68DB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B29EDBC1D6ED9BD00A68DB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B29EDBE1D6ED9BD00A68DB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledScrollView.swift; sourceTree = "<group>"; };
+		7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewOn.swift; sourceTree = "<group>"; };
+		7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewProtocol.swift; sourceTree = "<group>"; };
+		7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubContentView.swift; sourceTree = "<group>"; };
+		99B64B50B9BA7EB4538B9058 /* Pods_ScaledPageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScaledPageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBCC169D7DD75EEAAA7B1923 /* Pods-ScaledPageView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScaledPageView.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScaledPageView/Pods-ScaledPageView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453709B02B16FB1C42D8F85B /* Pods_ScaledPageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229A77B8125C75ED20EF2820 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F6466F073EA5A862ECD3C46 /* Pods-ScaledPageView.debug.xcconfig */,
+				DBCC169D7DD75EEAAA7B1923 /* Pods-ScaledPageView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3404F9A0865A06350DB0BD11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99B64B50B9BA7EB4538B9058 /* Pods_ScaledPageView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B29EDA61D6ED9BD00A68DB1 = {
 			isa = PBXGroup;
 			children = (
 				7B29EDB11D6ED9BD00A68DB1 /* ScaledPageView */,
 				7B29EDB01D6ED9BD00A68DB1 /* Products */,
+				229A77B8125C75ED20EF2820 /* Pods */,
+				3404F9A0865A06350DB0BD11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +86,7 @@
 		7B29EDB11D6ED9BD00A68DB1 /* ScaledPageView */ = {
 			isa = PBXGroup;
 			children = (
+				7B29EDC41D6EDA9200A68DB1 /* sliding */,
 				7B29EDB21D6ED9BD00A68DB1 /* AppDelegate.swift */,
 				7B29EDB41D6ED9BD00A68DB1 /* ViewController.swift */,
 				7B29EDB61D6ED9BD00A68DB1 /* Main.storyboard */,
@@ -64,6 +97,17 @@
 			path = ScaledPageView;
 			sourceTree = "<group>";
 		};
+		7B29EDC41D6EDA9200A68DB1 /* sliding */ = {
+			isa = PBXGroup;
+			children = (
+				7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */,
+				7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */,
+				7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */,
+				7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */,
+			);
+			path = sliding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B29EDC11D6ED9BD00A68DB1 /* Build configuration list for PBXNativeTarget "ScaledPageView" */;
 			buildPhases = (
+				DBADE3C424BDD194BFBFCAA8 /* [CP] Check Pods Manifest.lock */,
 				7B29EDAB1D6ED9BD00A68DB1 /* Sources */,
 				7B29EDAC1D6ED9BD00A68DB1 /* Frameworks */,
 				7B29EDAD1D6ED9BD00A68DB1 /* Resources */,
+				DE6CDCD96B4013D3CBBBBD8C /* [CP] Embed Pods Frameworks */,
+				D297B4E0D75858851400ADF6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +177,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D297B4E0D75858851400ADF6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScaledPageView/Pods-ScaledPageView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBADE3C424BDD194BFBFCAA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE6CDCD96B4013D3CBBBBD8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScaledPageView/Pods-ScaledPageView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B29EDAB1D6ED9BD00A68DB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7B29EDB51D6ED9BD00A68DB1 /* ViewController.swift in Sources */,
+				7B29EDCA1D6EDA9200A68DB1 /* ScaledViewOn.swift in Sources */,
+				7B29EDC91D6EDA9200A68DB1 /* ScaledScrollView.swift in Sources */,
 				7B29EDB31D6ED9BD00A68DB1 /* AppDelegate.swift in Sources */,
+				7B29EDCB1D6EDA9200A68DB1 /* ScaledViewProtocol.swift in Sources */,
+				7B29EDCC1D6EDA9200A68DB1 /* SubContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +346,7 @@
 		};
 		7B29EDC21D6ED9BD00A68DB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F6466F073EA5A862ECD3C46 /* Pods-ScaledPageView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScaledPageView/Info.plist;
@@ -258,6 +358,7 @@
 		};
 		7B29EDC31D6ED9BD00A68DB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBCC169D7DD75EEAAA7B1923 /* Pods-ScaledPageView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScaledPageView/Info.plist;
@@ -286,6 +387,7 @@
 				7B29EDC31D6ED9BD00A68DB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
