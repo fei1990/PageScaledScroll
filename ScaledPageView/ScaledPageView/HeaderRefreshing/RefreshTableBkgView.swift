@@ -1,9 +1,9 @@
 //
 //  RefreshTableBkgView.swift
-//  zolShop
+//  HeaderRefreshing
 //
 //  Created by wangfei on 16/7/5.
-//  Copyright © 2016年 zol. All rights reserved.
+//  Copyright © 2016年 fei.wang. All rights reserved.
 //
 
 import UIKit

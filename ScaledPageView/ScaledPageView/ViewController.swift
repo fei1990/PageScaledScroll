@@ -38,7 +38,7 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
         table.tableHeaderView = scrollViewOn
         
         headerRefresh.handleScrollView(self.table) { [weak self] _ in
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(4.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(3) * NSEC_PER_SEC)), dispatch_get_main_queue(), {
                 self?.title = "您选择了第0个pageView"
                 self?.scrollViewOn.scaledScrollView.reloadData()
                 self?.headerRefresh.endLoading()
