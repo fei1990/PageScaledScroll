@@ -1,12 +1,15 @@
 PODS:
+  - EZSwiftExtensions (1.5)
   - SnapKit (0.21.0)
 
 DEPENDENCIES:
+  - EZSwiftExtensions
   - SnapKit (~> 0.21.0)
 
 SPEC CHECKSUMS:
+  EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   SnapKit: 2756fe24b706367af224c9c508d2f9166d03354c
 
-PODFILE CHECKSUM: d07b8be091f80311f79a3316bea694e1c0e815d8
+PODFILE CHECKSUM: cd4618825e781b13f02adb571e63d4b6e1e80012
 
 COCOAPODS: 1.0.1

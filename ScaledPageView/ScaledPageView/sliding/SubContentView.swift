@@ -15,6 +15,7 @@ class SubContentView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.redColor()
         label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
         label?.backgroundColor = UIColor.yellowColor()
         label!.textAlignment = .Center
@@ -31,10 +32,10 @@ class SubContentView: UIView {
         label?.snp_makeConstraints(closure: { (make) in
             make.width.equalTo(50)
             make.height.equalTo(30)
-            make.center.equalTo(CGPointMake(CGRectGetWidth(self.frame) * self.transform.tx/2, CGRectGetHeight(self.frame) * self.transform.ty/2))
+            make.center.equalTo(CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2))
 //            make.center.equalTo(self.snp_center)
         })
-        
+        self.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR)
     }
 
 }

@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import SnapKit
 
 class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
     
     
     var scrollViewOn:ScaledViewOn!
-    var label:UILabel!
-    var view1:UIView!
+    lazy private var table: UITableView = UITableView(frame: self.view.frame, style: .Plain)
+    private var headerRefresh:HeaderRefresh = HeaderRefresh()
     var pageViewIndex:Int = 0 {
         willSet {
-            label.text = "您选择了第\(newValue)个pageView"
+            self.title = "您选择了第\(newValue)个pageView"
         }
     }
     
@@ -25,14 +24,27 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "您选择了第0个pageView"
+        table.delegate = self
+        table.dataSource = self
+        table.backgroundColor = UIColor.init(colorLiteralRed: 249.0/255, green: 249.0/255, blue: 249.0/255, alpha: 1.0)
+        table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.addSubview(table)
         
-        scrollViewOn = ScaledViewOn(frame: CGRect(x: 0, y: 100, width: CGRectGetWidth(self.view.frame), height: 150))
+        
+        scrollViewOn = ScaledViewOn(frame: CGRect(x: 0, y: 100, width: CGRectGetWidth(self.view.frame), height: 200))
         scrollViewOn.scaledScrollView.scrollViewDataSource = self
         scrollViewOn.scaledScrollView.scrollViewDelegate = self
-        self.view.addSubview(scrollViewOn)
-        scrollViewOn.scaledScrollView.reloadData()
+        table.tableHeaderView = scrollViewOn
         
-        subViewInit()
+        headerRefresh.handleScrollView(self.table) { [weak self] _ in
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(4.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), {
+                self?.title = "您选择了第0个pageView"
+                self?.scrollViewOn.scaledScrollView.reloadData()
+                self?.headerRefresh.endLoading()
+            })
+        }
+        
         
     }
     
@@ -49,12 +61,7 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
         
         let view = SubContentView()
         view.backgroundColor = UIColor.greenColor()
-        
-        //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        //        label.center = CGPointMake(CGRectGetWidth(view.frame)/2, CGRectGetHeight(view.frame)/2)
-        //        label.textAlignment = .Center
         view.label!.text = "\(pageIndex)"
-        //        view.addSubview(label)
         
         return view
     }
@@ -67,39 +74,20 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
         
     }
     
-    func subViewInit() {
-        
-        view1 = UIView()
-        view1.backgroundColor = UIColor.blueColor()
-        self.view.addSubview(view1)
-        
-        label = UILabel()
-        label.backgroundColor = UIColor.cyanColor()
-        label.textAlignment = .Center
-        view1.addSubview(label)
-        
+}
+
+extension ViewController:UITableViewDelegate,UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
     }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view1.snp_makeConstraints { (make) in
-            
-            make.top.equalTo(scrollViewOn.snp_bottom).offset(10)
-            make.left.equalTo(self.view.snp_left).offset(10)
-            make.height.equalTo(50)
-            make.right.equalTo(self.view.snp_right).offset(-10.0)
-            
-            
-        }
-        
-        
-        label.snp_makeConstraints { (make) in
-            make.width.equalTo(200)
-            make.height.equalTo(35)
-            make.center.equalTo(CGPointMake(CGRectGetWidth(view1.frame)/2, CGRectGetHeight(view1.frame)/2))
-        }
-        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        cell?.textLabel?.text = "\(indexPath.row)"
+        return cell!
     }
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let nextVc = NextViewController()
+        self.pushVC(nextVc)
+    }
 }
 

@@ -9,5 +9,5 @@ inhibit_all_warnings!
 target ‘ScaledPageView’ do
 
 pod 'SnapKit', '~> 0.21.0'
-
+pod 'EZSwiftExtensions'
 end

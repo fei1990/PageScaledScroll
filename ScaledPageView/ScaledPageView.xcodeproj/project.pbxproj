@@ -13,10 +13,15 @@
 		7B29EDB81D6ED9BD00A68DB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDB61D6ED9BD00A68DB1 /* Main.storyboard */; };
 		7B29EDBA1D6ED9BD00A68DB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDB91D6ED9BD00A68DB1 /* Assets.xcassets */; };
 		7B29EDBD1D6ED9BD00A68DB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B29EDBB1D6ED9BD00A68DB1 /* LaunchScreen.storyboard */; };
-		7B29EDC91D6EDA9200A68DB1 /* ScaledScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */; };
-		7B29EDCA1D6EDA9200A68DB1 /* ScaledViewOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */; };
-		7B29EDCB1D6EDA9200A68DB1 /* ScaledViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */; };
 		7B29EDCC1D6EDA9200A68DB1 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */; };
+		7B3AD0221D78613800F9D019 /* ScaledScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3AD01F1D78613800F9D019 /* ScaledScrollView.swift */; };
+		7B3AD0231D78613800F9D019 /* ScaledViewOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3AD0201D78613800F9D019 /* ScaledViewOn.swift */; };
+		7B3AD0241D78613800F9D019 /* ScaledViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3AD0211D78613800F9D019 /* ScaledViewProtocol.swift */; };
+		7BF806A31D786E6700404A12 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF8069F1D786E6700404A12 /* CircleView.swift */; };
+		7BF806A41D786E6700404A12 /* HeaderLoadingBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BF806A01D786E6700404A12 /* HeaderLoadingBundle.bundle */; };
+		7BF806A51D786E6700404A12 /* HeaderRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF806A11D786E6700404A12 /* HeaderRefresh.swift */; };
+		7BF806A61D786E6700404A12 /* RefreshTableBkgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF806A21D786E6700404A12 /* RefreshTableBkgView.swift */; };
+		7BF806A81D78713900404A12 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF806A71D78713900404A12 /* NextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +33,15 @@
 		7B29EDB91D6ED9BD00A68DB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B29EDBC1D6ED9BD00A68DB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B29EDBE1D6ED9BD00A68DB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledScrollView.swift; sourceTree = "<group>"; };
-		7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewOn.swift; sourceTree = "<group>"; };
-		7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewProtocol.swift; sourceTree = "<group>"; };
 		7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubContentView.swift; sourceTree = "<group>"; };
+		7B3AD01F1D78613800F9D019 /* ScaledScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledScrollView.swift; sourceTree = "<group>"; };
+		7B3AD0201D78613800F9D019 /* ScaledViewOn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewOn.swift; sourceTree = "<group>"; };
+		7B3AD0211D78613800F9D019 /* ScaledViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaledViewProtocol.swift; sourceTree = "<group>"; };
+		7BF8069F1D786E6700404A12 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		7BF806A01D786E6700404A12 /* HeaderLoadingBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HeaderLoadingBundle.bundle; sourceTree = "<group>"; };
+		7BF806A11D786E6700404A12 /* HeaderRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderRefresh.swift; sourceTree = "<group>"; };
+		7BF806A21D786E6700404A12 /* RefreshTableBkgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTableBkgView.swift; sourceTree = "<group>"; };
+		7BF806A71D78713900404A12 /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		99B64B50B9BA7EB4538B9058 /* Pods_ScaledPageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScaledPageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCC169D7DD75EEAAA7B1923 /* Pods-ScaledPageView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScaledPageView.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScaledPageView/Pods-ScaledPageView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,9 +96,11 @@
 		7B29EDB11D6ED9BD00A68DB1 /* ScaledPageView */ = {
 			isa = PBXGroup;
 			children = (
+				7BF8069E1D786E6700404A12 /* HeaderRefreshing */,
 				7B29EDC41D6EDA9200A68DB1 /* sliding */,
 				7B29EDB21D6ED9BD00A68DB1 /* AppDelegate.swift */,
 				7B29EDB41D6ED9BD00A68DB1 /* ViewController.swift */,
+				7BF806A71D78713900404A12 /* NextViewController.swift */,
 				7B29EDB61D6ED9BD00A68DB1 /* Main.storyboard */,
 				7B29EDB91D6ED9BD00A68DB1 /* Assets.xcassets */,
 				7B29EDBB1D6ED9BD00A68DB1 /* LaunchScreen.storyboard */,
@@ -100,12 +112,23 @@
 		7B29EDC41D6EDA9200A68DB1 /* sliding */ = {
 			isa = PBXGroup;
 			children = (
-				7B29EDC51D6EDA9200A68DB1 /* ScaledScrollView.swift */,
-				7B29EDC61D6EDA9200A68DB1 /* ScaledViewOn.swift */,
-				7B29EDC71D6EDA9200A68DB1 /* ScaledViewProtocol.swift */,
+				7B3AD01F1D78613800F9D019 /* ScaledScrollView.swift */,
+				7B3AD0201D78613800F9D019 /* ScaledViewOn.swift */,
+				7B3AD0211D78613800F9D019 /* ScaledViewProtocol.swift */,
 				7B29EDC81D6EDA9200A68DB1 /* SubContentView.swift */,
 			);
 			path = sliding;
+			sourceTree = "<group>";
+		};
+		7BF8069E1D786E6700404A12 /* HeaderRefreshing */ = {
+			isa = PBXGroup;
+			children = (
+				7BF8069F1D786E6700404A12 /* CircleView.swift */,
+				7BF806A01D786E6700404A12 /* HeaderLoadingBundle.bundle */,
+				7BF806A11D786E6700404A12 /* HeaderRefresh.swift */,
+				7BF806A21D786E6700404A12 /* RefreshTableBkgView.swift */,
+			);
+			path = HeaderRefreshing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +195,7 @@
 				7B29EDBD1D6ED9BD00A68DB1 /* LaunchScreen.storyboard in Resources */,
 				7B29EDBA1D6ED9BD00A68DB1 /* Assets.xcassets in Resources */,
 				7B29EDB81D6ED9BD00A68DB1 /* Main.storyboard in Resources */,
+				7BF806A41D786E6700404A12 /* HeaderLoadingBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,12 +254,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3AD0241D78613800F9D019 /* ScaledViewProtocol.swift in Sources */,
 				7B29EDB51D6ED9BD00A68DB1 /* ViewController.swift in Sources */,
-				7B29EDCA1D6EDA9200A68DB1 /* ScaledViewOn.swift in Sources */,
-				7B29EDC91D6EDA9200A68DB1 /* ScaledScrollView.swift in Sources */,
 				7B29EDB31D6ED9BD00A68DB1 /* AppDelegate.swift in Sources */,
-				7B29EDCB1D6EDA9200A68DB1 /* ScaledViewProtocol.swift in Sources */,
+				7B3AD0231D78613800F9D019 /* ScaledViewOn.swift in Sources */,
 				7B29EDCC1D6EDA9200A68DB1 /* SubContentView.swift in Sources */,
+				7BF806A81D78713900404A12 /* NextViewController.swift in Sources */,
+				7BF806A31D786E6700404A12 /* CircleView.swift in Sources */,
+				7BF806A61D786E6700404A12 /* RefreshTableBkgView.swift in Sources */,
+				7BF806A51D786E6700404A12 /* HeaderRefresh.swift in Sources */,
+				7B3AD0221D78613800F9D019 /* ScaledScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

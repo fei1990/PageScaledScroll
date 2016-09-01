@@ -14,9 +14,8 @@ class ScaledViewOn: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.backgroundColor = UIColor.redColor()
-        scaledScrollView = ScaledScrollView(frame: CGRectMake(0,0,270,140))
-        scaledScrollView.center = CGPointMake(CGRectGetWidth(frame)/2, CGRectGetHeight(frame)/2)
+        self.backgroundColor = UIColor.whiteColor()
+        scaledScrollView = ScaledScrollView(frame: CGRectZero)
         self.addSubview(scaledScrollView)
         self.setNeedsUpdateConstraints()
     }
@@ -33,5 +32,22 @@ class ScaledViewOn: UIView {
         }
         return super.hitTest(point, withEvent: event)
     }
+    
+    override func updateConstraints() {
+        self.scaledScrollView.snp_makeConstraints { (make) in
+            make.left.equalTo(self.snp_left).offset(60)
+            make.top.equalTo(self.snp_top).offset(0)
+            make.bottom.equalTo(self.snp_bottom).offset(0)
+            make.right.equalTo(self.snp_right).offset(-60)
+        }
+        
+        super.updateConstraints()
+    }
 
+    override func layoutSubviews() {
+        scaledScrollView.frame = CGRectMake(60, 0, CGRectGetWidth(self.frame) - 120, CGRectGetHeight(self.frame))
+        scaledScrollView.reloadData()
+        super.layoutSubviews()
+    }
+    
 }

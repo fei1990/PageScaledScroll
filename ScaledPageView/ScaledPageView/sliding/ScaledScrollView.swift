@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
-let MAXSCALE_FACTOR = CGFloat(1.2)
+let MAXSCALE_FACTOR = CGFloat(1.0)
+let MINSCALE_FACTOR = CGFloat(0.8)
 
 class ScaledScrollView: UIScrollView {
     
-    internal var scrollViewDataSource:ScaledViewDataSource!
-    internal var scrollViewDelegate:ScaledViewDelegate!
+    weak internal var scrollViewDataSource:ScaledViewDataSource!
+    weak internal var scrollViewDelegate:ScaledViewDelegate!
     private var numsOfItems:Int = 0
     private var pageView:UIView!
     private var pageViewArr:Array<UIView>!
@@ -22,7 +24,6 @@ class ScaledScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.backgroundColor = UIColor.cyanColor()
         self.clipsToBounds = false
         self.pagingEnabled = true
         self.showsHorizontalScrollIndicator = false
@@ -39,7 +40,9 @@ class ScaledScrollView: UIScrollView {
     }
     
     internal func reloadData() {
-        
+        self.removeSubviews()
+        self.contentSize = CGSizeMake(0, 0)
+        self.pageViewArr.removeAll()
         numsOfItems = (scrollViewDataSource?.numbersOfPageInScaledView(self))!
         assert(numsOfItems > 0, "pageView的数量必须大于零")
         
@@ -60,7 +63,7 @@ class ScaledScrollView: UIScrollView {
         setPageViewFrameAndCenter(pageView: pageView, withIndex: -1)
         self.addSubview(pageView)
         self.contentSize = CGSize(width: scrollViewWidth * CGFloat(numsOfItems + 2), height: scrollViewHeight)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(0.1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { 
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(0.05 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             self.contentOffset = CGPointMake(self.scrollViewWidth, 0)
         }
         
@@ -112,9 +115,12 @@ class ScaledScrollView: UIScrollView {
     }
     
     private func setPageViewFrameAndCenter(pageView pageView:UIView, withIndex index:Int) {
-        pageView.frame = CGRectMake(0, 0, 230, 100)
-        pageView.center = CGPointMake(scrollViewWidth * (0.5 + CGFloat(index + 1)), scrollViewHeight/2)
-        pageView.setNeedsUpdateConstraints()
+        self.pageView.frame = CGRectMake(0, 0, self.scrollViewWidth + 10, self.scrollViewHeight)
+        self.pageView.center = CGPointMake(self.scrollViewWidth * (0.5 + CGFloat(index + 1)), self.scrollViewHeight/2)
+        self.pageView.layer.masksToBounds = true
+        self.pageView.layer.cornerRadius = 4
+        self.pageView.layer.borderWidth = 1
+        self.pageView.layer.borderColor = UIColor(colorLiteralRed: 230.0/255, green: 230.0/255, blue: 230.0/255, alpha: 1.0).CGColor
     }
     
 }
@@ -150,7 +156,9 @@ extension ScaledScrollView {
         }
     }
     private var scrollViewHeight:CGFloat {
-        return CGRectGetHeight(self.frame)
+        get {
+            return CGRectGetHeight(self.frame)
+        }
     }
     private var scrollViewX:CGFloat {
         get{
@@ -170,21 +178,23 @@ extension ScaledScrollView:UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        currentPageView?.transform = CGAffineTransformIdentity    //相当重要
-        nextSlidePageView?.transform = CGAffineTransformIdentity  //相当重要
+        currentPageView?.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR)
+        nextSlidePageView?.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR)
         
         let scale = scrollView.contentOffset.x/scrollViewWidth   //滑动时的缩放比例
         let indexOfPage = Int(scale)
         if Int(scrollView.contentOffset.x/scrollViewWidth) == numsOfItems + 1 {  //滑到最后一个
             scrollView.setContentOffset(CGPointMake(scrollViewWidth, 0), animated: false)
             nextSlidePageView = self.pageViewArr.first
-            nextSlidePageView?.transform = CGAffineTransformIdentity
+//            nextSlidePageView?.layer.transform = CATransform3DMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR, MINSCALE_FACTOR)
+            nextSlidePageView?.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR)
             return
         }
         if CGFloat(scrollView.contentOffset.x/scrollViewWidth) <= 0 {  //滑到第一个
             scrollView.setContentOffset(CGPointMake(scrollViewWidth * CGFloat(numsOfItems), 0), animated: false)
             nextSlidePageView = self.pageViewArr.last
-            nextSlidePageView?.transform = CGAffineTransformIdentity
+//            nextSlidePageView?.layer.transform = CATransform3DMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR, MINSCALE_FACTOR)
+            nextSlidePageView?.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR, MINSCALE_FACTOR)
             return
         }
         
@@ -196,10 +206,17 @@ extension ScaledScrollView:UIScrollViewDelegate {
                 nextSlidePageView = self.pageViewArr[1]
             }
             
+//            currentPageView?.layer.transform = CATransform3DMakeScale(MAXSCALE_FACTOR - (CGFloat(scale) - CGFloat(indexOfPage))/5, MAXSCALE_FACTOR - (CGFloat(scale) - CGFloat(indexOfPage))/5, MAXSCALE_FACTOR - (CGFloat(scale) - CGFloat(indexOfPage))/5)
+//            nextSlidePageView?.layer.transform = CATransform3DMakeScale(MINSCALE_FACTOR + (CGFloat(scale) - CGFloat(indexOfPage))/5, MINSCALE_FACTOR + (CGFloat(scale) - CGFloat(indexOfPage))/5, MINSCALE_FACTOR + (CGFloat(scale) - CGFloat(indexOfPage))/5)
+            
             currentPageView?.transform = CGAffineTransformMakeScale(MAXSCALE_FACTOR - (CGFloat(scale) - CGFloat(indexOfPage))/5, MAXSCALE_FACTOR - (CGFloat(scale) - CGFloat(indexOfPage))/5)
-            nextSlidePageView?.transform = CGAffineTransformMakeScale(1 + (CGFloat(scale) - CGFloat(indexOfPage))/5, 1 + (CGFloat(scale) - CGFloat(indexOfPage))/5)
+            nextSlidePageView?.transform = CGAffineTransformMakeScale(MINSCALE_FACTOR + (CGFloat(scale) - CGFloat(indexOfPage))/5, MINSCALE_FACTOR + (CGFloat(scale) - CGFloat(indexOfPage))/5)
             
         }
+        
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         
     }
     
