@@ -78,14 +78,13 @@ class ScaledScrollView: UIScrollView {
     func tappedAction(tap:UITapGestureRecognizer) {
         let point = tap.locationInView(tap.view)
         let convertPoint = tap.view?.convertPoint(point, toView: self.superview)  //转换point点
-
         let touchIndex:Int = touchPageViewIndexOfPoint(point.x)
         if selectedCenterPageViewOfConvertPoint(convertPoint!) {  //点击中间的cell
             let indexPath:Int = pageViewIndexOfPoint(touchPVIndex: CGFloat(touchIndex))
             scrollViewDelegate?.didSelectPageView?(self, pageIndex: indexPath)
         }
         
-        if selectedLeftRightPageViewOfPoint(point, index: touchIndex) {  //点击两侧的cell
+        if selectedLeftRightPageViewOfPoint(convertPoint!, index: touchIndex) {  //点击两侧的cell  //或传入point 对应的条件要变
             self.setContentOffset(CGPointMake(scrollViewWidth * CGFloat(touchIndex), 0), animated: true)
         }
 
@@ -107,15 +106,18 @@ class ScaledScrollView: UIScrollView {
     }
     
     private func selectedCenterPageViewOfConvertPoint(convertPoint:CGPoint) -> Bool {
-        return (convertPoint.x >= (leftRightMargin + scrollViewX) && convertPoint.x <= (pageViewWidth + leftRightMargin + scrollViewX)) && (convertPoint.y >= (topBottomMargin + scrollViewY) && convertPoint.y <= (pageVieweHeight + topBottomMargin + scrollViewY))
+        
+        return convertPoint.x >= scrollViewX && convertPoint.x <= (scrollViewX + scrollViewWidth) && convertPoint.y >= scrollViewY && convertPoint.y <= (scrollViewY + scrollViewHeight)
+//        return (convertPoint.x >= (leftRightMargin + scrollViewX) && convertPoint.x <= (pageViewWidth + leftRightMargin + scrollViewX)) && (convertPoint.y >= (topBottomMargin + scrollViewY) && convertPoint.y <= (pageVieweHeight + topBottomMargin + scrollViewY))
     }
     
     private func selectedLeftRightPageViewOfPoint(point:CGPoint, index:Int) ->Bool {
-        return point.x >= leftRightMargin + scrollViewWidth * CGFloat(index) && point.y >= topBottomMargin && point.y <= (topBottomMargin + pageVieweHeight)
+        return (point.x <= scrollViewX - leftRightMargin ||  point.x >= scrollViewX + scrollViewWidth + leftRightMargin) && point.y >= topBottomMargin && point.y <= (topBottomMargin + pageVieweHeight)
+//        return point.x >= leftRightMargin + scrollViewWidth * CGFloat(index) && point.y >= topBottomMargin && point.y <= (topBottomMargin + pageVieweHeight)
     }
     
     private func setPageViewFrameAndCenter(pageView pageView:UIView, withIndex index:Int) {
-        self.pageView.frame = CGRectMake(0, 0, self.scrollViewWidth + 10, self.scrollViewHeight)
+        self.pageView.frame = CGRectMake(0, 0, self.scrollViewWidth, self.scrollViewHeight)
         self.pageView.center = CGPointMake(self.scrollViewWidth * (0.5 + CGFloat(index + 1)), self.scrollViewHeight/2)
         self.pageView.layer.masksToBounds = true
         self.pageView.layer.cornerRadius = 4

@@ -60,7 +60,7 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
     func pageViewInScrollView(scaledScrollView: ScaledScrollView, pageIndex: Int) -> UIView {
         
         let view = SubContentView()
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.cyanColor()
         view.label!.text = "\(pageIndex)"
         
         return view
