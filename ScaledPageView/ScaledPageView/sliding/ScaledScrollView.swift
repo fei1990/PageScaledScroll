@@ -63,10 +63,10 @@ class ScaledScrollView: UIScrollView {
         setPageViewFrameAndCenter(pageView: pageView, withIndex: -1)
         self.addSubview(pageView)
         self.contentSize = CGSize(width: scrollViewWidth * CGFloat(numsOfItems + 2), height: scrollViewHeight)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(0.05 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-            self.contentOffset = CGPointMake(self.scrollViewWidth, 0)
-        }
-        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(0.05 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+//            self.contentOffset = CGPointMake(self.scrollViewWidth, 0)
+//        }
+        self.performSelector(#selector(ScaledScrollView.scrollToSpecifiedPoint), withObject: nil, afterDelay: 0.0, inModes: [NSRunLoopCommonModes])
     }
 
     func tapGesture() -> UITapGestureRecognizer {
@@ -123,6 +123,11 @@ class ScaledScrollView: UIScrollView {
         self.pageView.layer.cornerRadius = 4
         self.pageView.layer.borderWidth = 1
         self.pageView.layer.borderColor = UIColor(colorLiteralRed: 230.0/255, green: 230.0/255, blue: 230.0/255, alpha: 1.0).CGColor
+    }
+    
+    //MARK: - scroll to specified index
+    func scrollToSpecifiedPoint() {
+        self.contentOffset = CGPointMake(self.scrollViewWidth, 0)
     }
     
 }
