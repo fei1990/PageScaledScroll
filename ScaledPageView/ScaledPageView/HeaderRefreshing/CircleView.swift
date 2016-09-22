@@ -1,3 +1,4 @@
+
 //
 //  CircleView.swift
 //  HeaderRefreshing
@@ -44,14 +45,14 @@ class CircleView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext();
-        CGContextSetLineWidth(context, self.lineWidth);
-        CGContextSetLineCap(context, .Butt);
+        CGContextSetLineWidth(context!, self.lineWidth);
+        CGContextSetLineCap(context!, .Butt);
         
-        CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor);
+        CGContextSetStrokeColorWithColor(context!, self.lineColor.CGColor);
         let step = self.progress * CGFloat(M_PI)
-        CGContextAddArc(context, rect.size.width/2, rect.size.height/2, rect.size.width/2 - 2, startAngle, startAngle + 2 * CGFloat(M_PI) - step, 0);
+        CGContextAddArc(context!, rect.size.width/2, rect.size.height/2, rect.size.width/2 - 2, startAngle, startAngle + 2 * CGFloat(M_PI) - step, 0);
         
-        CGContextStrokePath(context);
+        CGContextStrokePath(context!);
         
     }
 }

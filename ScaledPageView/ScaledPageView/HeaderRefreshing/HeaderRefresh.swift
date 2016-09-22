@@ -40,6 +40,10 @@ public class HeaderRefresh:NSObject {
         /// 是否正在加载
     public var  isLoading:Bool = false
     
+    
+    /// 是否下拉到规定的最大偏移
+    private var isDragingToMaxOffset = false
+    
     private var callback:RefreshCallback!
     
     /// 默认top偏移量
@@ -56,6 +60,18 @@ public class HeaderRefresh:NSObject {
         self.tableView.removeObserver(self, forKeyPath: "contentOffset")
         self.tableView.removeObserver(self, forKeyPath: "contentInset")
         self.callback = nil
+    }
+    
+    ///根据view反向寻找controller
+    func viewController(view:UIView)->UIViewController?{
+        var next:UIView? = view
+        repeat{
+            if let nextResponder = next?.nextResponder() where nextResponder.isKindOfClass(UIViewController.self){
+                return (nextResponder as! UIViewController)
+            }
+            next = next?.superview
+        }while next != nil
+        return nil
     }
     
     /**
@@ -91,6 +107,7 @@ public class HeaderRefresh:NSObject {
         
         self.tableView.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
         self.tableView.addObserver(self, forKeyPath: "contentInset", options: .New, context: nil)
+
     }
     
     /**
@@ -100,16 +117,19 @@ public class HeaderRefresh:NSObject {
      - parameter bottom: 默认bottom inset
      */
     private func resetBkgFrameOnce(top:CGFloat, withInsetBottom bottom: CGFloat) {
-        dispatch_once(&onceToken) {
+//        dispatch_once(&onceToken) {
             self.defaultTableInsetTop = top
             self.defaultTableInsetBottom = bottom
             self.tableBkgView.resetFrame(withContentInsetTop: top)
-        }
+//        }
     }
     
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
+
         if keyPath == "contentInset" {
+            guard !isDragingToMaxOffset else {
+                return
+            }
             resetBkgFrameOnce(self.tableView.contentInset.top, withInsetBottom: self.tableView.contentInset.bottom)
         }
         
@@ -158,6 +178,7 @@ public class HeaderRefresh:NSObject {
             self.tableBkgView.circleView.progress = progress
         }else if self.refreshState == .Refreshing {
             if isDraging {   //拖动时转动
+                isDragingToMaxOffset = true  //不在修改contentinset 的 top
                 if progress < 2.0 {
                     self.refreshState = .Pulling
                 }else {

@@ -446,7 +446,7 @@ extension UIView {
         drawViewHierarchyInRect(bounds, afterScreenUpdates: false)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return img
+        return img!
     }
 }
 
