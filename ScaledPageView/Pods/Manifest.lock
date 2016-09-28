@@ -1,15 +1,22 @@
 PODS:
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
   - EZSwiftExtensions (1.5)
+  - Fabric (1.6.7)
   - SnapKit (0.21.0)
 
 DEPENDENCIES:
+  - Crashlytics
   - EZSwiftExtensions
+  - Fabric
   - SnapKit (~> 0.21.0)
 
 SPEC CHECKSUMS:
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   SnapKit: 2756fe24b706367af224c9c508d2f9166d03354c
 
-PODFILE CHECKSUM: cd4618825e781b13f02adb571e63d4b6e1e80012
+PODFILE CHECKSUM: 2ceb687bb7cce4e2613a4b054d4d5d4b881ee889
 
 COCOAPODS: 1.0.1

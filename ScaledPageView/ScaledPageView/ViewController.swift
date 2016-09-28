@@ -44,8 +44,6 @@ class ViewController: UIViewController,ScaledViewDelegate,ScaledViewDataSource {
                 self?.headerRefresh.endLoading()
             })
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

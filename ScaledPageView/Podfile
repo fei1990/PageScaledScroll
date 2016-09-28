@@ -10,4 +10,6 @@ target ‘ScaledPageView’ do
 
 pod 'SnapKit', '~> 0.21.0'
 pod 'EZSwiftExtensions'
+pod 'Fabric'
+pod 'Crashlytics'
 end
